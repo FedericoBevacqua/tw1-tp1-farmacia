@@ -7,12 +7,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Punto {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String latitud;
 	private String longitud;
+	
+	//Getters y Setters
 	public Long getId() {
 		return id;
 	}

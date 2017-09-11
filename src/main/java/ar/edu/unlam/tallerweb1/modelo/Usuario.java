@@ -1,7 +1,5 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +7,7 @@ import javax.persistence.Id;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
 // el paquete ar.edu.unlam.tallerweb1.modelo esta indicado en el archivo hibernateCOntext.xml para que hibernate
-// busque entities en Ã©l
+// busque entities en él
 @Entity
 public class Usuario {
 
@@ -22,8 +20,7 @@ public class Usuario {
 	private String email;
 	private String password;
 	private String rol;
-	//Atributo Agregado
-	private String apellido;
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,10 +47,66 @@ public class Usuario {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
+}
+
+
+//Ejercicio Carpeta clase usuario
+
+/*
+
+package ar.edu.unlam.tallerweb1.modelo;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
+public class Usuario {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nombre;
+	private String apellido;
+	private Integer edad;
+	public Usuario(String nombre, String apellido, Integer edad) {
+		super();
+		
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	public String getApellido() {
 		return apellido;
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	public Integer getEdad() {
+		return edad;
+	}
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+	
+
+
 }
+
+
+*/
