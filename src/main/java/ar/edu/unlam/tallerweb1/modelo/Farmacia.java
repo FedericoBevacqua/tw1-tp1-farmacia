@@ -23,17 +23,6 @@ public class Farmacia {
 	@OneToOne
 	private Punto geoLocalizacion;
 	
-	//Constructor
-	public Farmacia(String nombre, String telefono) {
-		super();
-		this.nombre = nombre;
-		this.telefono = telefono;
-	}
-	
-	public Farmacia() {
-		super();
-	}
-
 	//Getters y Setters
 	public Long getId() {
 		return id;

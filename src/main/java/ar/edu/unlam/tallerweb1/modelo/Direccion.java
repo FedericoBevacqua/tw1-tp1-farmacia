@@ -18,18 +18,6 @@ public class Direccion {
 	//Relaciones Entity
 		@ManyToOne
 		private Barrio barrio;
-		
-	//Constructor
-	public Direccion(String calle, String numero, Barrio barrio) {
-		super();
-		this.calle = calle;
-		this.numero = numero;
-		this.barrio = barrio;
-	}
-	
-	public Direccion() {
-		super();
-	}
 
 	//Getters y Setters
 	public Long getId() {

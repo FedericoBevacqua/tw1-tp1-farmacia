@@ -21,16 +21,6 @@ public class Barrio {
 	@JoinColumn(name = "idComuna")
 	private Comuna comuna;
 	
-	//Constructor
-	public Barrio(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-	
-	public Barrio() {
-		super();
-	}
-
 	//Getters y Setters
 	public Long getId() {
 		return id;
