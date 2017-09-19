@@ -9,7 +9,10 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
+
 import ar.edu.unlam.tallerweb1.SpringTest;
+import junit.framework.Assert;
 
 public class Test1Farmacia extends SpringTest{
 
@@ -34,7 +37,7 @@ public class Test1Farmacia extends SpringTest{
 		farmacia2.setDiaDeTurno("martes");
 		farmacia3.setDiaDeTurno("martes");
 		
-		//guardar
+		//Guardar
 		session.save(farmacia1);
 		session.save(farmacia2);
 		session.save(farmacia3);
@@ -46,9 +49,10 @@ public class Test1Farmacia extends SpringTest{
 		
 		assertThat(resultado).hasSize(2);
 		
-		
-		
-		
-		
+		for (Farmacia lista: resultado) {
+			
+			assertEquals("martes",lista.getDiaDeTurno());
+			
+		}
 	}
 }

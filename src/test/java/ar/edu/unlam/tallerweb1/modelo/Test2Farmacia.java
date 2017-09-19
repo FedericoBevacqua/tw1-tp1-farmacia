@@ -2,6 +2,8 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
+
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
@@ -33,7 +35,7 @@ public class Test2Farmacia extends SpringTest{
 		direccion2= new Direccion();
 		direccion3= new Direccion();
 		
-		//settear
+		//Settear
 		direccion1.setCalle("Arieta");
 		direccion2.setCalle("Urdaneta");
 		direccion3.setCalle("25 de mayo");
@@ -41,7 +43,7 @@ public class Test2Farmacia extends SpringTest{
 		farmacia2.setDireccion(direccion2);
 		farmacia3.setDireccion(direccion3);
 		
-		//Gaurdar
+		//Guardar
 		session.save(direccion1);
 		session.save(direccion2);
 		session.save(direccion3);
@@ -49,7 +51,7 @@ public class Test2Farmacia extends SpringTest{
 		session.save(farmacia2);
 		session.save(farmacia3);
 		
-		//restringir
+		//Restringir
 		List<Farmacia>resultado;
 		resultado=session.createCriteria(Farmacia.class)
 				.createAlias("direccion", "dire")
@@ -57,6 +59,13 @@ public class Test2Farmacia extends SpringTest{
 				.list();
 		
 		assertThat(resultado).hasSize(1);
+		
+		
+		for (Farmacia lista: resultado) {
+			
+			assertEquals("Arieta",lista.getDireccion().getCalle());
+			
+		}
 	
 	}
 }

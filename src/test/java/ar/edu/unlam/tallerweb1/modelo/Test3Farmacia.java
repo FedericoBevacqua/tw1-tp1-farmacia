@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import ar.edu.unlam.tallerweb1.SpringTest;
+import junit.framework.Assert;
 
 public class Test3Farmacia extends SpringTest{
 
@@ -37,7 +39,7 @@ public class Test3Farmacia extends SpringTest{
 		barrio2=new Barrio();
 		barrio3=new Barrio();
 				
-		//settear
+		//Settear
 		barrio1.setNombre("Los Aromos");
 		barrio2.setNombre("Barrio Nuevo");
 		barrio3.setNombre("El portal");
@@ -48,7 +50,7 @@ public class Test3Farmacia extends SpringTest{
 		farmacia2.setDireccion(direccion2);
 		farmacia3.setDireccion(direccion3);
 				
-		//Gaurdar
+		//Guardar
 		session.save(barrio1);
 		session.save(barrio2);
 		session.save(barrio3);
@@ -59,7 +61,7 @@ public class Test3Farmacia extends SpringTest{
 		session.save(farmacia2);
 		session.save(farmacia3);
 				
-		//restringir
+		//Restringir
 		List<Farmacia>resultado;
 		resultado=session.createCriteria(Farmacia.class)
 					.createAlias("direccion", "dire")
@@ -68,7 +70,12 @@ public class Test3Farmacia extends SpringTest{
 						.list();
 				
 				assertThat(resultado).hasSize(1);
-			
+				
+				for (Farmacia lista: resultado) {
+					
+					assertEquals("Los Aromos",lista.getDireccion().getBarrio().getNombre());
+					
+				}
 			}
 	}
 
